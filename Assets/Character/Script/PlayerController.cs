@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
     public void Damage()
     {
         Debug.Log("=======================µ¥¹ÌÁö");
+
         ChanceCount--;
         Hp.text = ChanceCount.ToString();
         if (ChanceCount == 0)
