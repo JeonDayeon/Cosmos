@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     int talkid;
     int talkindex;
     bool isTalk;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +30,14 @@ public class GameManager : MonoBehaviour
         talkindex = 0; //톡 데이터 순서대로 내보내기 위함
         talkid = mapOption.Id; //맵 아이디 가져오기
 
+        isTalk = true;
         Talk();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E) && isTalk)
         {
             Talk();
         }
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
             talkindex = 0;
             TalkBox.SetActive(false);
             talkid = mapOption.nextId;
+            isTalk = false;
             Time.timeScale = 1.0f;
             return;
         }

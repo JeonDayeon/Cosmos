@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     //---------------------------------------------------Goal
     public GameObject goal;
 
+    GameManager game;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
         ChanceCount = Chance;
         Hp = GameObject.Find("HpTxt").GetComponent<Text>();
 
-
+        game = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -198,6 +199,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log("=======================µ¥¹ÌÁö");
 
         ChanceCount--;
+        rbody.AddForce(
+            new Vector2(rbody.transform.localScale.x * -2f, rbody.transform.localScale.y * 1f) * 6f, ForceMode2D.Impulse);
+
         Hp.text = ChanceCount.ToString();
         if (ChanceCount == 0)
         {
