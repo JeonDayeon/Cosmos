@@ -24,7 +24,7 @@ public class TalkManager : MonoBehaviour
 
     }
 
-    public string GetTalk(int Tid, int talkindex)
+    public string GetTalk(int Tid, int talkindex, string typeName)//≥—∞‹ ¡Ÿ µ•¿Ã≈Õ∏¶ ªÃ±‚ ¿ß«ÿ πÆ¿⁄ø≠∑Œ ø¯«œ¥¬ ∞Õ¿ª πﬁ¿Ω
     {
         id = Tid;
         Debug.Log("∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â∞Ÿ≈Â");
@@ -37,7 +37,7 @@ public class TalkManager : MonoBehaviour
         
         else
         {
-            return ((string)text[talkindex]["Content"]);
+            return ((string)text[talkindex][typeName]);
         }
 
     }

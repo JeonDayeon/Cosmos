@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     TalkManager talkmanager;
     public GameObject TalkBox;
     public Text talkText;
-
+    public Text nameText;
     int talkid;
     int talkindex;
     bool isTalk;
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         talkmanager = FindObjectOfType<TalkManager>();
         TalkBox = GameObject.Find("TalkBox");
         talkText = GameObject.Find("TalkText").GetComponent<Text>();
+        nameText = GameObject.Find("NameText").GetComponent<Text>();
 
         talkindex = 0; //톡 데이터 순서대로 내보내기 위함
         talkid = mapOption.Id; //맵 아이디 가져오기
@@ -46,8 +47,10 @@ public class GameManager : MonoBehaviour
     void Talk()
     {
         TalkBox.SetActive(true);
-        string talkData = talkmanager.GetTalk(talkid, talkindex);
+        string talkData = talkmanager.GetTalk(talkid, talkindex, "Content");
+        string nameData = talkmanager.GetTalk(talkid, talkindex, "Name");
         talkText.text = talkData;
+        nameText.text = nameData;
         Time.timeScale = 0;
         if (talkData == null)
         {
