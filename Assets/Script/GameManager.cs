@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     int talkid;
     int talkindex;
     bool isTalk;
-
+    //UI¥‹√‡≈∞--------------------------------------
+    public bool isMain = false;
+    public GameObject ExitUI;
     // Start is called before the first frame update
     void Start()
     {

@@ -40,6 +40,7 @@ public class MovingBlock : MonoBehaviour
 
             if (isReverse)
             {
+                transform.localScale = new Vector2(-1, 1);
                 //반대 방향으로 이동
                 //이동량 = 양수 && 이동 위치가 초기 위치보다 작은 경우
                 //이동량 = 음수 && 이동 위치가 초기 위치보다 큰 경우
@@ -59,6 +60,7 @@ public class MovingBlock : MonoBehaviour
 
             else
             {
+                transform.localScale = new Vector2(1, 1);
                 //정방향으로 이동
                 //이동량 = 양수 && 이동 위치가 초기 위치보다 큰 경우
                 //이동량 = 음수 && 이동 위치가 초기 + 이동거리 보다 작은 경우
@@ -84,6 +86,7 @@ public class MovingBlock : MonoBehaviour
                     transform.position = defPos;
                 }
                 isReverse = !isReverse; //값 반전
+               
                 isCanMove = false; //이동 가능 값을 false
                 if (isMoveWhenOn == false)
                 {

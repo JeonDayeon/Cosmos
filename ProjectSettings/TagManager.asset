@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Main
+    uniqueID: 1814955591
+    locked: 0
+  - name: Chapter
+    uniqueID: 2196021813
+    locked: 0
+  - name: GameUI
+    uniqueID: 2034689889
+    locked: 0
