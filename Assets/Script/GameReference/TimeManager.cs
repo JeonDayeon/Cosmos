@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
-    Slider Timer;
+    public Slider Timer;
     float fSliderBarTime;
     PlayerController player;
     void Start()
     {
-        Timer = GetComponent<Slider>();
+        Timer = gameObject.GetComponent<Slider>();
         player = FindObjectOfType<PlayerController>();
     }
 
@@ -24,5 +24,13 @@ public class TimeManager : MonoBehaviour
         {
             player.GameOver();
         }
+    }
+
+    public void SetTimer(float time)
+    {
+        gameObject.SetActive(true);
+        Timer = gameObject.GetComponent<Slider>();
+        Timer.maxValue = time;
+        Timer.value = Timer.maxValue;
     }
 }

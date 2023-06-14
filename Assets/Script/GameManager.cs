@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E) && isTalk)
+        if (Input.anyKeyDown && isTalk)
         {
             Talk();
         }

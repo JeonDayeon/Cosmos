@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public class PlayerController : MonoBehaviour
     public float Walkspeed = 3.0f;
     public float Runspeed = 9.0f;
     bool isRun;
-    //---------------------------------------------------Á¡ÇÁ
-    public float Fjump = 4.0f;//ÀúÀå¿ë
-    public float jumpTem = 0.0f;//½ÇÇà¿ë
+    //---------------------------------------------------ì í”„
+    public float Fjump = 4.0f;//ì €ì¥ìš©
+    public float jumpTem = 0.0f;//ì‹¤í–‰ìš©
     public LayerMask groundLayer;
     bool goJump = false;
     public bool OnGround = false;
     bool TwoJump = false;
-    //---------------------------------------------------¾Ö´Ï¸ŞÀÌ¼Ç
+    //---------------------------------------------------ì• ë‹ˆë©”ì´ì…˜
     Animator animator;
     public string IdleAnime = "Idle";
     public string WalkAnime = "Walk";
@@ -27,11 +28,11 @@ public class PlayerController : MonoBehaviour
     public string TwoJumpAnime = "TwoJump";
     string nowAnime = " ";
     string oldAnime = " ";
-    //---------------------------------------------------µ¥¹ÌÁö(°ÔÀÓ¿À¹ö)
+    //---------------------------------------------------ë°ë¯¸ì§€(ê²Œì„ì˜¤ë²„)
     public int Chance;
     public int ChanceCount;
-    public GameObject test;
-    private Text Hp;
+    public GameObject gameover;
+    public TextMeshProUGUI Hp;
     //---------------------------------------------------Goal
     public GameObject goal;
 
@@ -39,22 +40,24 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //µ¿ÀÛ
+        //ë™ì‘
         rbody = this.GetComponent<Rigidbody2D>();
         jumpTem = Fjump;
 
-        //¾Ö´Ï¸ŞÀÌ¼Ç
+        //ì• ë‹ˆë©”ì´ì…˜
         animator = GetComponent<Animator>();
         nowAnime = IdleAnime;
         oldAnime = IdleAnime;
 
         speed = Walkspeed;
 
-        //°ÔÀÓ¿À¹ö
+        //ê²Œì„ì˜¤ë²„
         ChanceCount = Chance;
-        Hp = GameObject.Find("HpTxt").GetComponent<Text>();
+        Hp = GameObject.Find("HP").transform.Find("HpTxt").GetComponent<TextMeshProUGUI>();
 
-        game = FindObjectOfType<GameManager>();
+        //ê²Œì„ì„±ê³µ, ê²Œì„ì˜¤ë²„ ì‹œ ì¶”ì¶œí•  UI
+        goal = GameObject.Find("GameUI").transform.Find("Goal").gameObject;
+        gameover = GameObject.Find("GameUI").transform.Find("GameOver").gameObject;
     }
 
     // Update is called once per frame
@@ -66,24 +69,21 @@ public class PlayerController : MonoBehaviour
         if (isRun)
         {
             speed = Runspeed;
-            Debug.Log("====================================== ¤»");
         }
 
         else
             speed = Walkspeed;
 
-        //¹æÇâ
+        //ë°©í–¥
         if (axisH > 0.0f)
         {
-            //¿À¸¥ÂÊ
-            Debug.Log("¿À¸¥ÂÊ");
+            //ì˜¤ë¥¸ìª½
             transform.localScale = new Vector2(1, 1);
         }
 
         else if (axisH < 0.0f)
         {
-            //¿ŞÂÊ
-            Debug.Log("¿ŞÂÊ");
+            //ì™¼ìª½
             transform.localScale = new Vector2(-1, 1);
         }
 
@@ -101,30 +101,30 @@ public class PlayerController : MonoBehaviour
 
         if(OnGround || axisH != 0)
         {
-            //Áö¸é À§ or ¼Óµµ°¡ 0ÀÌ ¾Æ´Ò ¶§
+            //ì§€ë©´ ìœ„ or ì†ë„ê°€ 0ì´ ì•„ë‹ ë•Œ
             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
         }
         
         if(OnGround && goJump)
         {
-            //Áö¸é À§ + Á¡ÇÁÅ°
+            //ì§€ë©´ ìœ„ + ì í”„í‚¤
             Jumpmov(jumpTem);
             TwoJump = true;
         }
 
         else if(!OnGround && goJump && TwoJump)
         {
-            //2´Ü °øÁß + Á¡ÇÁÅ°
+            //2ë‹¨ ê³µì¤‘ + ì í”„í‚¤
             Jumpmov(jumpTem/20);
             TwoJump = false;
         }
 
         if (OnGround)
         {
-            //Áö¸é À§
+            //ì§€ë©´ ìœ„
             if (axisH == 0)
             {
-                nowAnime = IdleAnime; //Á¤Áö
+                nowAnime = IdleAnime; //ì •ì§€
             }
             else
             {
@@ -134,14 +134,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    nowAnime = WalkAnime; //ÀÌµ¿
+                    nowAnime = WalkAnime; //ì´ë™
                 }
             }
             Debug.Log(nowAnime);
         }
 
         
-        //°øÁß
+        //ê³µì¤‘
         else
         {
             if (TwoJump)
@@ -183,12 +183,10 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         goJump = true;
-        Debug.Log("Á¡ÇÁ");
     }
 
     public void Jumpmov(float speed)
     {
-        Debug.Log("Á¡ÇÁÇÏ±â");
         Vector2 jumpPw = new Vector2(0, jumpTem);
         rbody.AddForce(jumpPw, ForceMode2D.Impulse);
         goJump = false;
@@ -196,7 +194,6 @@ public class PlayerController : MonoBehaviour
 
     public void Damage()
     {
-        Debug.Log("=======================µ¥¹ÌÁö");
 
         ChanceCount--;
         rbody.AddForce(
@@ -211,8 +208,7 @@ public class PlayerController : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
-        Debug.Log("=======================¾Æ¿ô");
-        test.SetActive(true);
+        gameover.SetActive(true);
     }
 
     public void Goal()

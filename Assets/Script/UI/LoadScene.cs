@@ -8,6 +8,6 @@ public class LoadScene : MonoBehaviour
 
     public void LoadStage()
     {
-        SceneManager.LoadScene(stageID);
+        SceneManager.LoadScene(stageID, LoadSceneMode.Single);
     }
 }
