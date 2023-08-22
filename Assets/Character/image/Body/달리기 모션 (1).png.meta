@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -167,10 +167,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_0"
       rect:
         serializedVersion: 2
-        x: 16
+        x: 14
         y: 121
-        width: 13
-        height: 49
+        width: 23
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
         serializedVersion: 2
         x: 54
         y: 125
-        width: 27
-        height: 45
+        width: 36
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_2"
       rect:
         serializedVersion: 2
-        x: 105
+        x: 103
         y: 121
-        width: 13
-        height: 49
+        width: 23
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,8 +232,8 @@ TextureImporter:
         serializedVersion: 2
         x: 143
         y: 125
-        width: 30
-        height: 45
+        width: 36
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_5"
       rect:
         serializedVersion: 2
-        x: 16
+        x: 8
         y: 65
-        width: 13
-        height: 49
+        width: 23
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_6"
       rect:
         serializedVersion: 2
-        x: 50
+        x: 44
         y: 68
-        width: 30
-        height: 46
+        width: 36
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +293,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_7"
       rect:
         serializedVersion: 2
-        x: 105
+        x: 97
         y: 65
-        width: 13
-        height: 49
+        width: 23
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: "\uB2EC\uB9AC\uAE30 \uBAA8\uC158 (1)_8"
       rect:
         serializedVersion: 2
-        x: 142
+        x: 133
         y: 69
-        width: 27
-        height: 45
+        width: 36
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
