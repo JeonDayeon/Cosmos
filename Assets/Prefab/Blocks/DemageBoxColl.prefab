@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7489625513067586083}
   - component: {fileID: 7489625513067586085}
-  - component: {fileID: 7489625513067586082}
-  - component: {fileID: 4521088330970797953}
+  - component: {fileID: 4232515000426469538}
+  - component: {fileID: 8123199803432644840}
   m_Layer: 7
   m_Name: DemageBoxColl
   m_TagString: Demage
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0023bbfb3ffe527459bfb04d4989919f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7489625513067586082
-BoxCollider2D:
+--- !u!60 &4232515000426469538
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,21 +99,33 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.29931355}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9846154, y: 0.9692308}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.02, y: 1.6186271}
-  m_EdgeRadius: 0
---- !u!61 &4521088330970797953
-BoxCollider2D:
+  m_Points:
+    m_Paths:
+    - - {x: 0.16552925, y: 0.09096241}
+      - {x: 0.0440116, y: 0.401254}
+      - {x: 0.004295174, y: 0.47996444}
+      - {x: -0.016462035, y: 0.47531348}
+      - {x: -0.2197895, y: 0.0046242476}
+      - {x: -0.32865334, y: -0.22349918}
+      - {x: -0.40587044, y: -0.40729737}
+      - {x: -0.4923077, y: -0.4033969}
+      - {x: -0.4923077, y: -0.4846154}
+      - {x: 0.4923077, y: -0.4846154}
+      - {x: 0.49230576, y: -0.40947986}
+      - {x: 0.37957954, y: -0.39732838}
+      - {x: 0.32272008, y: -0.26314807}
+--- !u!60 &8123199803432644840
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,12 +141,24 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9846154, y: 0.9692308}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.16552925, y: 0.09096241}
+      - {x: 0.0440116, y: 0.401254}
+      - {x: 0.004295174, y: 0.47996444}
+      - {x: -0.016462035, y: 0.47531348}
+      - {x: -0.2197895, y: 0.0046242476}
+      - {x: -0.32865334, y: -0.22349918}
+      - {x: -0.40587044, y: -0.40729737}
+      - {x: -0.4923077, y: -0.4033969}
+      - {x: -0.4923077, y: -0.4846154}
+      - {x: 0.4923077, y: -0.4846154}
+      - {x: 0.49230576, y: -0.40947986}
+      - {x: 0.37957954, y: -0.39732838}
+      - {x: 0.32272008, y: -0.26314807}
