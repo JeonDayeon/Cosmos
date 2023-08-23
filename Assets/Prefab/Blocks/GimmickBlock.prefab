@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4453953690199404530}
   - component: {fileID: 4453953690199404532}
   - component: {fileID: 4453953690199404533}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GimmickBlock
   m_TagString: Demage
   m_Icon: {fileID: 0}

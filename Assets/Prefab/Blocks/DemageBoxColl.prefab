@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7489625513067586085}
   - component: {fileID: 7489625513067586082}
   - component: {fileID: 4521088330970797953}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: DemageBoxColl
   m_TagString: Demage
   m_Icon: {fileID: 0}

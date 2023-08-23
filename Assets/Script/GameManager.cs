@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 struct portraitCharacterImg
@@ -28,11 +29,15 @@ public class GameManager : MonoBehaviour
     public GameObject TalkBox;
     [SerializeField]
     portraitCharacterImg[] imageArr;
-    public Text talkText;
-    public Text nameText;
+    public TextMeshProUGUI talkText;
+    public TextMeshProUGUI nameText;
     int talkid;
     int talkindex;
     bool isTalk;
+
+    //int index = 0;
+    //bool isActiveFalse = false;
+
     //UI단축키--------------------------------------
     public bool isMain = false;
     public GameObject ExitUI;
@@ -45,13 +50,23 @@ public class GameManager : MonoBehaviour
 
         talkmanager = FindObjectOfType<TalkManager>();
         TalkBox = GameObject.Find("TalkBox");
-        talkText = GameObject.Find("TalkText").GetComponent<Text>();
-        nameText = GameObject.Find("NameText").GetComponent<Text>();
+        talkText = GameObject.Find("TalkText").GetComponent<TextMeshProUGUI>();
+        nameText = GameObject.Find("NameText").GetComponent<TextMeshProUGUI>();
         talkindex = 0; //톡 데이터 순서대로 내보내기 위함
         talkid = mapOption.Id; //맵 아이디 가져오기
 
-        isTalk = true;
-        Talk();
+        isTalk = mapOption.isStory;
+
+        if (isTalk)
+        {
+            Time.timeScale = 0.0f;
+            Talk();
+        }
+
+        else
+        {
+            TalkBox.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -65,34 +80,42 @@ public class GameManager : MonoBehaviour
 
     void Talk()
     {
-        int index = 0;
         TalkBox.SetActive(true);
 
         string talkData = talkmanager.GetTalk(talkid, talkindex, "Content");
         string nameData = talkmanager.GetTalk(talkid, talkindex, "Name");
         string emotionData = talkmanager.GetTalk(talkid, talkindex, "Emotion");
+        string ActiveChar = talkmanager.GetTalk(talkid, talkindex, "Active");
+
         Debug.Log("이모션 이모션" + emotionData);
         talkText.text = talkData;
         nameText.text = nameData;
-        Time.timeScale = 0;
 
-        if(emotionData != "n")
+        if (emotionData != "n")
         {
-            for(int i = 0; i < imageArr.Length; i++)
+            Debug.Log("입성");
+      
+            for (int i = 0; i < imageArr.Length; i++)
             {
                 if(imageArr[i].characterImg.ToString() == nameData)
                 {
-                    index = i;
                     if (!imageArr[i].img.gameObject.activeSelf)
                     {
                         imageArr[i].img.gameObject.SetActive(true);
                     }
+
+                    if (ActiveChar == "f")
+                    {
+                        imageArr[i].img.gameObject.SetActive(false);
+
+                    }
+
                     imageArr[i].img.sprite = talkmanager.GetPortrait(nameData, emotionData);
                     imageArr[i].img.color = Color.white;
                 }
 
                 else if (imageArr[i].characterImg.ToString() != nameData)
-                {
+                {   
                     imageArr[i].img.color = Color.gray;
                 }
             }
@@ -105,6 +128,7 @@ public class GameManager : MonoBehaviour
             TalkBox.SetActive(false);
             talkid = mapOption.nextId;
             isTalk = false;
+            mapOption.isStory = false;
             for (int i = 0; i < imageArr.Length; i++)
             {
                 imageArr[i].img.gameObject.SetActive(false);

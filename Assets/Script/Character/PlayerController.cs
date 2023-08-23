@@ -16,8 +16,10 @@ public class PlayerController : MonoBehaviour
     public float Fjump = 4.0f;//저장용
     public float jumpTem = 0.0f;//실행용
     public LayerMask groundLayer;
+    public LayerMask DamageLayer;
     bool goJump = false;
     public bool OnGround = false;
+    public bool OnDamage = false;
     bool TwoJump = false;
     //---------------------------------------------------애니메이션
     Animator animator;
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public int ChanceCount;
     public GameObject gameover;
     public TextMeshProUGUI Hp;
+    public SpriteRenderer spriterender;
     //---------------------------------------------------Goal
     public GameObject goal;
 
@@ -51,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
         speed = Walkspeed;
 
+        //게임 데미지
+        spriterender = this.GetComponent<SpriteRenderer>();
+
         //게임오버
         ChanceCount = Chance;
         Hp = GameObject.Find("HP").transform.Find("HpTxt").GetComponent<TextMeshProUGUI>();
@@ -65,6 +71,12 @@ public class PlayerController : MonoBehaviour
     {
         axisH = Input.GetAxisRaw("Horizontal");
         isRun = Input.GetKey(KeyCode.Z);
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ChanceCount++;
+            Hp.text = ChanceCount.ToString();
+        }
 
         if (isRun)
         {
@@ -98,28 +110,28 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         OnGround = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), groundLayer);
-
-        if(OnGround || axisH != 0)
+        OnDamage = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), DamageLayer);
+        if (OnGround || OnDamage || axisH != 0)
         {
             //지면 위 or 속도가 0이 아닐 때
             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
         }
-        
-        if(OnGround && goJump)
+
+        if ((OnGround||OnDamage) && goJump)
         {
             //지면 위 + 점프키
             Jumpmov(jumpTem);
             TwoJump = true;
         }
 
-        else if(!OnGround && goJump && TwoJump)
+        else if ((!OnGround||!OnDamage) && goJump && TwoJump)
         {
             //2단 공중 + 점프키
-            Jumpmov(jumpTem/20);
+            Jumpmov(jumpTem / 20);
             TwoJump = false;
         }
 
-        if (OnGround)
+        if (OnGround || OnDamage)
         {
             //지면 위
             if (axisH == 0)
@@ -140,7 +152,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(nowAnime);
         }
 
-        
+
         //공중
         else
         {
@@ -176,7 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Demage"))
         {
-            Damage();
+            Damage(collision.transform.position);
         }
     }
 
@@ -192,19 +204,52 @@ public class PlayerController : MonoBehaviour
         goJump = false;
     }
 
-    public void Damage()
+    public void Damage(Vector2 targetPos)
     {
 
         ChanceCount--;
-        rbody.AddForce(
-            new Vector2(rbody.transform.localScale.x * -2f, rbody.transform.localScale.y * 1f) * 6f, ForceMode2D.Impulse);
 
+        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
+        rbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+
+        StartCoroutine(NodamageEffect());
         Hp.text = ChanceCount.ToString();
+
         if (ChanceCount == 0)
         {
             GameOver();
         }
     }
+
+    IEnumerator NodamageEffect()
+    {
+        if (gameObject.layer != 11)
+            gameObject.layer = 11;
+        int count = 0;
+        while(count < 15)
+        {
+            float fadeCnt = 0;
+            while (fadeCnt < 1.0f)
+            {
+                fadeCnt += 0.1f;
+                yield return new WaitForSeconds(0.01f);
+                spriterender.color = new Color(1, 1, 1, fadeCnt);
+            }
+
+            while(fadeCnt < 0.6f)
+            {
+                fadeCnt -= 0.01f;
+                yield return new WaitForSeconds(0.01f);
+                spriterender.color = new Color(1, 1, 1, fadeCnt);
+            }
+            count++;
+        }
+        count = 0;
+        gameObject.layer = 0;
+        StopCoroutine(NodamageEffect());
+    }
+
+    
     public void GameOver()
     {
         Time.timeScale = 0;

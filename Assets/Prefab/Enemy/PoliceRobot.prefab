@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4233786884044635652}
   - component: {fileID: 4233786884044635768}
   - component: {fileID: 4233786884044635769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoliceRobot
   m_TagString: Demage
   m_Icon: {fileID: 0}
