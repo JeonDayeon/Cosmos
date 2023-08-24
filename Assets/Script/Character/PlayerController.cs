@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriterender;
     //---------------------------------------------------Goal
     public GameObject goal;
+    public GameManager gameManager;//골인 후 스토리 보여주기 위함
+    //---------------------------------------------------노데미지 효과
+    public GameObject Star;
+    public bool isCorutin;//코루틴 동작 확인
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,9 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         nowAnime = IdleAnime;
         oldAnime = IdleAnime;
+
+        //게임매니저
+        gameManager = FindObjectOfType<GameManager>();
 
         speed = Walkspeed;
 
@@ -63,6 +70,8 @@ public class PlayerController : MonoBehaviour
         goal = GameObject.Find("GameUI").transform.Find("Goal").gameObject;
         gameover = GameObject.Find("GameUI").transform.Find("GameOver").gameObject;
 
+        //스타 소환
+        Star = gameObject.transform.GetChild(1).gameObject;
         Hp.text = ChanceCount.ToString();
     }
 
@@ -209,7 +218,7 @@ public class PlayerController : MonoBehaviour
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
         rbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
 
-        StartCoroutine(NodamageEffect(15));
+        StartCoroutine(NodamageEffect(15, "damage"));
         Hp.text = ChanceCount.ToString();
 
         if (ChanceCount == 0)
@@ -224,13 +233,18 @@ public class PlayerController : MonoBehaviour
         Hp.text = ChanceCount.ToString();
     }
 
-    public IEnumerator NodamageEffect(int time)
+    public IEnumerator NodamageEffect(int time, string type)
     {
-        if (gameObject.layer != 11)
-            gameObject.layer = 11;
+        isCorutin = true;
+        gameObject.layer = 11;
+
         int count = 0;
         while(count < time)
         {
+            if(gameObject.layer != 11)
+            {
+                gameObject.layer = 11;
+            }
             Debug.Log("들어옴");
             float fadeCnt = 0;
             while (fadeCnt < 1.0f)
@@ -238,20 +252,42 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("들어옴;;");
                 fadeCnt += 0.1f;
                 yield return new WaitForSeconds(0.01f);
-                spriterender.color = new Color(1, 1, 1, fadeCnt);
+                switch (type)
+                {
+                    case "damage":
+                        spriterender.color = new Color(1, 1, 1, fadeCnt);
+                        break;
+                    case "Item":
+                        Star.SetActive(true);
+                        spriterender.color = new Color(0.9787856f, 1, 0.5603774f, 1);
+                        break;
+                }
             }
 
             while(fadeCnt < 0.6f)
             {
                 fadeCnt -= 0.01f;
                 yield return new WaitForSeconds(0.01f);
-                spriterender.color = new Color(1, 1, 1, fadeCnt);
+                switch (type)
+                {
+                    case "damage":
+                        spriterender.color = new Color(1, 1, 1, fadeCnt);
+                        break;
+                    case "Item":
+                        break;
+                }
             }
             count++;
         }
         count = 0;
+        spriterender.color = new Color(1, 1, 1, 1);
+        if (Star.activeSelf&&type == "Item")
+        {
+            Star.SetActive(false);
+        }
         gameObject.layer = 0;
-        StopCoroutine(NodamageEffect(time));
+        isCorutin = true;
+        StopCoroutine(NodamageEffect(time, type));
     }
 
     
@@ -264,6 +300,7 @@ public class PlayerController : MonoBehaviour
     public void Goal()
     {
         Time.timeScale = 0;
-        goal.SetActive(true);
+        gameManager.isTalk = true;
+        gameManager.Talk();
     }
 }

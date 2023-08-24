@@ -31,9 +31,9 @@ public class GameManager : MonoBehaviour
     portraitCharacterImg[] imageArr;
     public TextMeshProUGUI talkText;
     public TextMeshProUGUI nameText;
-    int talkid;
+    public int talkid;
     int talkindex;
-    bool isTalk;
+    public bool isTalk;
 
     //int index = 0;
     //bool isActiveFalse = false;
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Talk()
+    public void Talk()
     {
         TalkBox.SetActive(true);
 
@@ -128,14 +128,22 @@ public class GameManager : MonoBehaviour
         {
             talkindex = 0;
             TalkBox.SetActive(false);
-            talkid = mapOption.nextId;
             isTalk = false;
             mapOption.isStory = false;
             for (int i = 0; i < imageArr.Length; i++)
             {
                 imageArr[i].img.gameObject.SetActive(false);
             }
-            Time.timeScale = 1.0f;
+            if (talkid % 10 == 0)
+            {
+                talkid += 1;
+                Time.timeScale = 1.0f;
+            }
+            else
+            {
+                talkid = mapOption.nextId;
+                player.goal.SetActive(true);
+            }
             return;
         }
 

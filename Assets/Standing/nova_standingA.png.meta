@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e064a217bb09f474386b0d5c60d3ac5b
+guid: d7d1f32cd29d35944af8dce291e9db48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cody_standing_0
+      name: nova_standingA_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 30
-        width: 661
-        height: 1796
+        x: 62
+        y: 28
+        width: 933
+        height: 2116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d724ea94b5ca954d9e3df0daf298b3c
-      internalID: -211495625
+      spriteID: b382f0ac12836b347bd179df1e606c2b
+      internalID: -1085669668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cody_standing_1
+      name: nova_standingA_1
       rect:
         serializedVersion: 2
-        x: 695
-        y: 30
-        width: 661
-        height: 1796
+        x: 1096
+        y: 28
+        width: 933
+        height: 2116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,29 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcb4b9a5d4b9ffa4dbdd2eb40656393f
-      internalID: -1848286417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cody_standing_2
-      rect:
-        serializedVersion: 2
-        x: 1377
-        y: 30
-        width: 661
-        height: 1796
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ad8eb37557775e428b0f1cfd7b4f78f
-      internalID: -478644313
+      spriteID: d4e28446e34e23346a9d5f4c48f0bbf4
+      internalID: -227385619
       vertices: []
       indices: 
       edges: []
@@ -189,9 +168,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cody_standing_2: -478644313
-      cody_standing_1: -1848286417
-      cody_standing_0: -211495625
+      nova_standingA_1: -227385619
+      nova_standingA_0: -1085669668
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

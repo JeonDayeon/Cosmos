@@ -52,6 +52,9 @@ TagManager:
   - name: Chapter
     uniqueID: 2196021813
     locked: 0
+  - name: ChangeSkin
+    uniqueID: 63904537
+    locked: 0
   - name: GameUI
     uniqueID: 2034689889
     locked: 0

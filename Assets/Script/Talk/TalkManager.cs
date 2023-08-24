@@ -9,7 +9,8 @@ struct Emotions
     {
         Basic,
         Talk,
-        Upset
+        Upset,
+        Smile
     }
     public Cmotion motion;
     public Sprite image;
@@ -46,9 +47,14 @@ public class TalkManager : MonoBehaviour
 
     void GenerateData()
     {
-        if (id == 100)
+        switch(id)
         {
-            text = CSVReader.Read("Chapter1-1");
+            case 100:
+                text =  CSVReader.Read("Chapter1-1");
+                break;
+            case 101:
+                text = CSVReader.Read("Chapter1-2");
+                break;
         }
         Debug.Log("제네레이트 데이터제네레이트 데이터제네레이트 데이터제네레이트 데이터");
 

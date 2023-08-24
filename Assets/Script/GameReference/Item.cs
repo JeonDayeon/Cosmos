@@ -66,6 +66,14 @@ public class Item : MonoBehaviour
 
                 case ItemType.NoDamage:
                     Debug.Log("들어감");
+                    player.Star.SetActive(true);
+                    Debug.Log("도는 중" + player.isCorutin);
+                    if (player.isCorutin)//코루틴 중복시 생기는 오류 막기
+                    {
+                        player.StopCoroutine(player.NodamageEffect(15, "Damage"));
+                        player.isCorutin = false;
+                        Debug.Log("도멈" + player.isCorutin);
+                    }
                     StartCoroutine(Nodamage());
                     break;
 
@@ -79,7 +87,8 @@ public class Item : MonoBehaviour
     
     IEnumerator Nodamage()
     {
-        yield return player.StartCoroutine(player.NodamageEffect(30));
-        StopCoroutine(Nodamage());
+        Debug.Log("도시");
+        yield return player.StartCoroutine(player.NodamageEffect(30, "Item"));
+        StopCoroutine(Nodamage());  
     }
 }
