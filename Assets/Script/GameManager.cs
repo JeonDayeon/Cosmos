@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     //UI단축키--------------------------------------
     public bool isMain = false;
     public GameObject ExitUI;
+    //UI활성 boolean--------------------------------
+    public GameObject GameSetting;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && isTalk)
+        if (Input.anyKeyDown && isTalk && !GameSetting.activeSelf)
         {
             Talk();
         }

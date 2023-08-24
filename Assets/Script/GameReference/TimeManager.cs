@@ -33,4 +33,8 @@ public class TimeManager : MonoBehaviour
         Timer.maxValue = time;
         Timer.value = Timer.maxValue;
     }
+    public void BackTime(float time)
+    {
+        Timer.value += time;
+    }
 }

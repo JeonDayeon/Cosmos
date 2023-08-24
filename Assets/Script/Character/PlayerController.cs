@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriterender;
     //---------------------------------------------------Goal
     public GameObject goal;
-
-    GameManager game;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +53,7 @@ public class PlayerController : MonoBehaviour
         speed = Walkspeed;
 
         //게임 데미지
-        spriterender = this.GetComponent<SpriteRenderer>();
+        spriterender = gameObject.GetComponent<SpriteRenderer>();
 
         //게임오버
         ChanceCount = Chance;
@@ -64,6 +62,8 @@ public class PlayerController : MonoBehaviour
         //게임성공, 게임오버 시 추출할 UI
         goal = GameObject.Find("GameUI").transform.Find("Goal").gameObject;
         gameover = GameObject.Find("GameUI").transform.Find("GameOver").gameObject;
+
+        Hp.text = ChanceCount.ToString();
     }
 
     // Update is called once per frame
@@ -74,8 +74,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            ChanceCount++;
-            Hp.text = ChanceCount.ToString();
+            Healing();
         }
 
         if (isRun)
@@ -103,8 +102,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
-        Hp.text = ChanceCount.ToString();
     }
 
     private void FixedUpdate()
@@ -212,7 +209,7 @@ public class PlayerController : MonoBehaviour
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
         rbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
 
-        StartCoroutine(NodamageEffect());
+        StartCoroutine(NodamageEffect(15));
         Hp.text = ChanceCount.ToString();
 
         if (ChanceCount == 0)
@@ -221,16 +218,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator NodamageEffect()
+    public void Healing()
+    {
+        ChanceCount++;
+        Hp.text = ChanceCount.ToString();
+    }
+
+    public IEnumerator NodamageEffect(int time)
     {
         if (gameObject.layer != 11)
             gameObject.layer = 11;
         int count = 0;
-        while(count < 15)
+        while(count < time)
         {
+            Debug.Log("들어옴");
             float fadeCnt = 0;
             while (fadeCnt < 1.0f)
             {
+                Debug.Log("들어옴;;");
                 fadeCnt += 0.1f;
                 yield return new WaitForSeconds(0.01f);
                 spriterender.color = new Color(1, 1, 1, fadeCnt);
@@ -246,7 +251,7 @@ public class PlayerController : MonoBehaviour
         }
         count = 0;
         gameObject.layer = 0;
-        StopCoroutine(NodamageEffect());
+        StopCoroutine(NodamageEffect(time));
     }
 
     
