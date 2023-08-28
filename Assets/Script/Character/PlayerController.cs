@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public string TwoJumpAnime = "TwoJump";
     string nowAnime = " ";
     string oldAnime = " ";
+    //---------------------------------------------------스킨
+    [SerializeField]
+    Skins[] skin;
+    public string SkinName = "Cosmos";
+    public PlayerData data;
     //---------------------------------------------------데미지(게임오버)
     public int Chance;
     public int ChanceCount;
@@ -42,9 +47,19 @@ public class PlayerController : MonoBehaviour
     //---------------------------------------------------노데미지 효과
     public GameObject Star;
     public bool isCorutin;//코루틴 동작 확인
+
     // Start is called before the first frame update
     void Start()
     {
+        //스킨
+        data = FindObjectOfType<PlayerData>();
+        
+        if (SkinName != data.SkinName)
+        {
+            SkinName = data.SkinName;
+            ChangeSkins();
+        }
+        
         //동작
         rbody = this.GetComponent<Rigidbody2D>();
         jumpTem = Fjump;
@@ -302,5 +317,19 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         gameManager.isTalk = true;
         gameManager.Talk();
+    }
+
+    public void ChangeSkins()
+    {
+        Animator PAnimator = gameObject.GetComponent<Animator>();
+        for (int i = 0; i < skin.Length; i++)
+        {
+            if (skin[i].name.ToString() == SkinName)
+            {
+                PAnimator.runtimeAnimatorController = skin[i].animator;
+                name = skin[i].name.ToString();
+                break;
+            }
+        }
     }
 }

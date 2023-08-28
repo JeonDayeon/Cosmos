@@ -5481,6 +5481,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791780812}
     m_Modifications:
+    - target: {fileID: 1363955127066011017, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0213349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127066011017, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0077691376
+      objectReference: {fileID: 0}
     - target: {fileID: 1363955127066011018, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5532,6 +5540,18 @@ PrefabInstance:
     - target: {fileID: 1363955127066011019, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0213604
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0077563226
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0024166703
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
@@ -15063,6 +15083,29 @@ MonoBehaviour:
   RunAnime: Run
   JumpAnime: Jump
   TwoJumpAnime: TwoJump
+  skin:
+  - name: 0
+    animator: {fileID: 9100000, guid: 0bf7e594b96945e48bb701ba78c6b4d5, type: 2}
+    img: {fileID: 0}
+  - name: 1
+    animator: {fileID: 9100000, guid: d8b357b5c4834084bb9b2f23ea84a44d, type: 2}
+    img: {fileID: 0}
+  - name: 2
+    animator: {fileID: 9100000, guid: 2ef8ec9590accbb4da70cbb7f62e9fe2, type: 2}
+    img: {fileID: 0}
+  - name: 3
+    animator: {fileID: 9100000, guid: 1894068a9b38cdc4a87a6245e9b5e32b, type: 2}
+    img: {fileID: 0}
+  - name: 4
+    animator: {fileID: 9100000, guid: 418455fe1490d3d4983d8f913a5691ff, type: 2}
+    img: {fileID: 0}
+  - name: 5
+    animator: {fileID: 9100000, guid: cd4a5660fb89a2c4e9074dc6556a7cb4, type: 2}
+    img: {fileID: 0}
+  - name: 6
+    animator: {fileID: 9100000, guid: a30c461876f6c8840a429453c1da08d3, type: 2}
+    img: {fileID: 0}
+  SkinName: 
   Chance: 5
   ChanceCount: 0
   gameover: {fileID: 0}
@@ -15071,6 +15114,7 @@ MonoBehaviour:
   goal: {fileID: 0}
   gameManager: {fileID: 0}
   Star: {fileID: 0}
+  isCorutin: 0
 --- !u!50 &2049507214
 Rigidbody2D:
   serializedVersion: 4
@@ -15991,6 +16035,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1058627530}
     m_Modifications:
+    - target: {fileID: 1363955127066011017, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0208458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127066011017, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00772506
+      objectReference: {fileID: 0}
     - target: {fileID: 1363955127066011018, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -16038,6 +16090,18 @@ PrefabInstance:
     - target: {fileID: 1363955127066011019, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
       propertyPath: m_Name
       value: ground2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0210516
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0074473917
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955127892450568, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0024166703
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c87ccfa05b269ad41bb7fcea211f2ae0, type: 3}
