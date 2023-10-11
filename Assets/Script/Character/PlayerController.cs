@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         //스킨
         data = FindObjectOfType<PlayerData>();
         
-        if (SkinName != data.SkinName)
+        if (data != null && SkinName != data.SkinName)
         {
             SkinName = data.SkinName;
             ChangeSkins();

@@ -137,13 +137,13 @@ public class GameManager : MonoBehaviour
             if (talkid % 10 == 0)
             {
                 talkid += 1;
-                Time.timeScale = 1.0f;
             }
             else
             {
                 talkid = mapOption.nextId;
                 player.goal.SetActive(true);
             }
+            Time.timeScale = 1.0f;
             return;
         }
 
