@@ -7,6 +7,7 @@ public enum ItemType
     Heart,
     NoDamage,
     BackTimer,
+    Quest,
 }
 
 public class Item : MonoBehaviour
@@ -18,6 +19,7 @@ public class Item : MonoBehaviour
     public Sprite HeartImg;
     public Sprite NoDmgImg;
     public Sprite BackTimeImg;
+    public Sprite QuestItemImg;
     //----------------------------------------------------관련 오브젝트 연결
     public PlayerController player;
     public TimeManager time;
@@ -43,6 +45,10 @@ public class Item : MonoBehaviour
 
             case ItemType.BackTimer:
                 spriterenderer.sprite = BackTimeImg;
+                break;
+
+            case ItemType.Quest:
+                spriterenderer.sprite = QuestItemImg;
                 break;
         }
     }
@@ -79,6 +85,10 @@ public class Item : MonoBehaviour
 
                 case ItemType.BackTimer:
                     time.BackTime(5f);
+                    break;
+
+                case ItemType.Quest:
+                    player.GetQuestItem();
                     break;
             }
         }

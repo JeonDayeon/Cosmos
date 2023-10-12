@@ -102,6 +102,7 @@ MonoBehaviour:
   HeartImg: {fileID: 21300000, guid: 9f18648d8edf67f4f9c67a395bc3eaa8, type: 3}
   NoDmgImg: {fileID: 21300000, guid: 509f43a2de8325842b6fb78180261f93, type: 3}
   BackTimeImg: {fileID: 21300000, guid: 435dba046a59055498b0f2feccc848f2, type: 3}
+  QuestItemImg: {fileID: 21300000, guid: 7c046d165a447e84dbd34d5f9a7a4c30, type: 3}
   player: {fileID: 0}
   time: {fileID: 0}
 --- !u!61 &9197190642104661814

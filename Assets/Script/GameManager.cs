@@ -34,15 +34,12 @@ public class GameManager : MonoBehaviour
     public int talkid;
     int talkindex;
     public bool isTalk;
-
-    //int index = 0;
-    //bool isActiveFalse = false;
-
     //UI단축키--------------------------------------
     public bool isMain = false;
     public GameObject ExitUI;
     //UI활성 boolean--------------------------------
     public GameObject GameSetting;
+
     // Start is called before the first frame update
     void Start()
     {

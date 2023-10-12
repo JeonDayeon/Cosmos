@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviour
     //---------------------------------------------------노데미지 효과
     public GameObject Star;
     public bool isCorutin;//코루틴 동작 확인
+    //---------------------------------------------------퀘스트
+    public GameObject QuestPanel;
+    public TextMeshProUGUI QuestText;
+    public int QuestItemNumber;
+    private int HaveItemNum;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +93,12 @@ public class PlayerController : MonoBehaviour
         //스타 소환
         Star = gameObject.transform.GetChild(1).gameObject;
         Hp.text = ChanceCount.ToString();
+
+        //퀘스트 판넬 켜져있을 때만 퀘스트 보이도록
+        QuestPanel = GameObject.Find("QuestPanel");
+        QuestText = QuestPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if(QuestPanel != null)
+            QuestText.text = "솔솔 솔방울 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
     }
 
     // Update is called once per frame
@@ -314,9 +325,33 @@ public class PlayerController : MonoBehaviour
 
     public void Goal()
     {
-        Time.timeScale = 0;
-        gameManager.isTalk = true;
-        gameManager.Talk();
+        if (QuestPanel != null)
+        {
+            if(HaveItemNum >= QuestItemNumber)
+            {
+                Time.timeScale = 0;
+                gameManager.isTalk = true;
+                gameManager.Talk();
+            }
+
+            else
+            {
+
+            }
+        }
+
+        else
+        {
+            Time.timeScale = 0;
+            gameManager.isTalk = true;
+            gameManager.Talk();
+        }
+    }
+
+    public void GetQuestItem()
+    {
+        HaveItemNum++;
+        QuestText.text = "솔솔 솔방울 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
     }
 
     public void ChangeSkins()

@@ -7,4 +7,5 @@ public class MapOption : MonoBehaviour
     public int Id;
     public bool isStory;
     public int nextId;
+    public int QuestId;
 }
