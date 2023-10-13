@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour
     //---------------------------------------------------퀘스트
     public GameObject QuestPanel;
     public TextMeshProUGUI QuestText;
+    public string QuestItemName;
     public int QuestItemNumber;
-    private int HaveItemNum;
+    public int HaveItemNum;
 
     // Start is called before the first frame update
     void Start()
@@ -96,9 +97,9 @@ public class PlayerController : MonoBehaviour
 
         //퀘스트 판넬 켜져있을 때만 퀘스트 보이도록
         QuestPanel = GameObject.Find("QuestPanel");
-        QuestText = QuestPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         if(QuestPanel != null)
-            QuestText.text = "솔솔 솔방울 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
+            QuestText = QuestPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            QuestText.text = QuestItemName + " 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
     }
 
     // Update is called once per frame
@@ -330,13 +331,16 @@ public class PlayerController : MonoBehaviour
             if(HaveItemNum >= QuestItemNumber)
             {
                 Time.timeScale = 0;
+                gameManager.talkid++;
                 gameManager.isTalk = true;
                 gameManager.Talk();
             }
 
-            else
+            else if(HaveItemNum < QuestItemNumber)
             {
-
+                Time.timeScale = 0;
+                gameManager.isTalk = true;
+                gameManager.Talk();
             }
         }
 
@@ -351,7 +355,7 @@ public class PlayerController : MonoBehaviour
     public void GetQuestItem()
     {
         HaveItemNum++;
-        QuestText.text = "솔솔 솔방울 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
+        QuestText.text = QuestItemName + " 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
     }
 
     public void ChangeSkins()

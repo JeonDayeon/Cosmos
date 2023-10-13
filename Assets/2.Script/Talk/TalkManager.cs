@@ -23,7 +23,8 @@ struct portraitimage
     {
         코디,
         네뷸라,
-        노바
+        노바,
+        주모,
     }
 
     public Character character;
@@ -54,6 +55,15 @@ public class TalkManager : MonoBehaviour
                 break;
             case 101:
                 text = CSVReader.Read("Chapter1-2");
+                break;
+            case 200:
+                text = CSVReader.Read("Chapter2-1");
+                break;
+            case 201:
+                text = CSVReader.Read("Chapter2-1Not");
+                break;
+            case 202:
+                text = CSVReader.Read("Chapter2-1Ok");
                 break;
         }
         Debug.Log("제네레이트 데이터제네레이트 데이터제네레이트 데이터제네레이트 데이터");

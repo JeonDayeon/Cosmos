@@ -11,13 +11,14 @@ struct portraitCharacterImg
     {
         코디,
         네뷸라,
-        노바
+        노바,
+        주모,
     }
 
     [SerializeField]
     public CharacterImg characterImg;
 
-    public Image img;
+    public Image img; //캐릭터 이미지 오브젝트
 }
 
 public class GameManager : MonoBehaviour
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
 
                     imageArr[i].img.sprite = talkmanager.GetPortrait(nameData, emotionData);
                     imageArr[i].img.color = Color.white;
+                    imageArr[i].img.SetNativeSize();
                 }
 
                 else if (imageArr[i].characterImg.ToString() != nameData)
@@ -137,8 +139,20 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                talkid = mapOption.nextId;
-                player.goal.SetActive(true);
+                if (player.QuestPanel != null)
+                {
+                    if (player.HaveItemNum >= player.QuestItemNumber)
+                    {
+                        talkid = mapOption.nextId;
+                        player.goal.SetActive(true);
+                    }
+                }
+
+                else
+                {
+                    talkid = mapOption.nextId;
+                    player.goal.SetActive(true);
+                }
             }
             Time.timeScale = 1.0f;
             return;
