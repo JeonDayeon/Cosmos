@@ -10,4 +10,9 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene(stageID, LoadSceneMode.Single);
     }
+
+    public void ReLoad()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
 }
