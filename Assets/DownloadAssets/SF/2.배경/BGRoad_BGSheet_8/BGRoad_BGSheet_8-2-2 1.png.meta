@@ -1,0 +1,738 @@
+fileFormatVersion: 2
+guid: 9f6e46062d5e17740827e8326cadac48
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_0
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 175
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4486ade9abf55904eb587ce5ef10745c
+      internalID: -478558250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 163
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae52cf9cc9cf04429230acbf0c89909
+      internalID: -1637133069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_2
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 175
+        width: 31
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b6d83498d9f1e4891218e69064cab6
+      internalID: -655783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 171
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d117ea07f5bd2c468d5bfeb14cfc98f
+      internalID: 889541923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_4
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 155
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8293215605ef38f409219fd634da6b0c
+      internalID: -1314245749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_5
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 158
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05266e1ce8216514d9364bd68eb7ff80
+      internalID: -1067308617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_6
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 159
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a743d710e0d247469e1c015b56699c9
+      internalID: 423888004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_7
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 121
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7235ceff721c4f948a1029be22c7a3e7
+      internalID: -1874807018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 153
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26fc340f77768534e9bd6c8a084c0c33
+      internalID: 1377556939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_9
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 139
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d58b604db50b364e858ac9e2c229035
+      internalID: -243192103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_10
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 141
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b6a9cd59b12444dbdf7e81e32c8866
+      internalID: 270378548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 131
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6475cf2007c36c5438468f91cd4bec0d
+      internalID: -1918714755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 119
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec010027e35ac39458344bebf7569515
+      internalID: -1015018826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_13
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 130
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3afe324a16c894eb7356dd13a37332
+      internalID: 1659629204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_14
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 133
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35282cdd0f5284a49ac41248b78becf6
+      internalID: -195844751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_15
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 135
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7645c9ac4dc8f624980522ce39765324
+      internalID: 1692663089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_16
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 119
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2081b4a3fe5938e47a88b96a6e1d0059
+      internalID: -1973494856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_17
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 87
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b1837dad416e249bb42521e88dc9cd
+      internalID: 225146154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_18
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 79
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3014a82ee64c748b1715b235d1c81f
+      internalID: -520777498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 79
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af05b50cd2f6ca458272a325aea827a
+      internalID: 1633900264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_20
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 43
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604a59cd6b715d645aeba90b2929b534
+      internalID: -878135285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_21
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 38
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aafec5cb6d091824d8d725f8b61ce2aa
+      internalID: 1492605886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_22
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 67
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5dd1c786d1ec74e9bad9138ab3cc79
+      internalID: -1873414926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_23
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 57
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bec0f8f5f7a4654eb83d79e113d6c5c
+      internalID: 1922864211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_24
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 49
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b0d4fdccfd24940846a19e8d8199c0
+      internalID: 775227057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_25
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 33
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4685acb060d073946aac89377c4222b4
+      internalID: 864174107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_26
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 36
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a264a1c98b8ec1e418f42f03fddfc484
+      internalID: -1355771032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGRoad_BGSheet_8-2-2 1_27
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 39
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd60f2227064bd44841915c3227c5c3
+      internalID: -1325909802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BGRoad_BGSheet_8-2-2 1_1: -1637133069
+      BGRoad_BGSheet_8-2-2 1_25: 864174107
+      BGRoad_BGSheet_8-2-2 1_14: -195844751
+      BGRoad_BGSheet_8-2-2 1_5: -1067308617
+      BGRoad_BGSheet_8-2-2 1_23: 1922864211
+      BGRoad_BGSheet_8-2-2 1_24: 775227057
+      BGRoad_BGSheet_8-2-2 1_18: -520777498
+      BGRoad_BGSheet_8-2-2 1_16: -1973494856
+      BGRoad_BGSheet_8-2-2 1_17: 225146154
+      BGRoad_BGSheet_8-2-2 1_9: -243192103
+      BGRoad_BGSheet_8-2-2 1_27: -1325909802
+      BGRoad_BGSheet_8-2-2 1_11: -1918714755
+      BGRoad_BGSheet_8-2-2 1_13: 1659629204
+      BGRoad_BGSheet_8-2-2 1_8: 1377556939
+      BGRoad_BGSheet_8-2-2 1_0: -478558250
+      BGRoad_BGSheet_8-2-2 1_4: -1314245749
+      BGRoad_BGSheet_8-2-2 1_26: -1355771032
+      BGRoad_BGSheet_8-2-2 1_20: -878135285
+      BGRoad_BGSheet_8-2-2 1_12: -1015018826
+      BGRoad_BGSheet_8-2-2 1_19: 1633900264
+      BGRoad_BGSheet_8-2-2 1_10: 270378548
+      BGRoad_BGSheet_8-2-2 1_22: -1873414926
+      BGRoad_BGSheet_8-2-2 1_3: 889541923
+      BGRoad_BGSheet_8-2-2 1_6: 423888004
+      BGRoad_BGSheet_8-2-2 1_15: 1692663089
+      BGRoad_BGSheet_8-2-2 1_2: -655783
+      BGRoad_BGSheet_8-2-2 1_7: -1874807018
+      BGRoad_BGSheet_8-2-2 1_21: 1492605886
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
