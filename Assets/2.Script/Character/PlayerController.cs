@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     public string QuestItemName;
     public int QuestItemNumber;
     public int HaveItemNum;
+    //--------------------------------------------------세이브포인트
+    public GameObject[] SavePoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -97,9 +100,21 @@ public class PlayerController : MonoBehaviour
 
         //퀘스트 판넬 켜져있을 때만 퀘스트 보이도록
         QuestPanel = GameObject.Find("QuestPanel");
-        if(QuestPanel != null)
+        if (QuestPanel != null)
+        {
             QuestText = QuestPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             QuestText.text = QuestItemName + " 수집 (" + HaveItemNum + "/" + QuestItemNumber + ")";
+        }
+
+        //떨어졌을 시 가장 가까운 세이브 포이트로 이동하게
+        GameObject saves;
+        saves = GameObject.Find("Save");
+
+        SavePoint = new GameObject[saves.transform.childCount];
+        for(int i = 0; i < saves.transform.childCount; i++)
+        {
+            SavePoint[i] = saves.transform.GetChild(i).gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -210,7 +225,22 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Out"))
         {
-            GameOver();
+            int ClosePoint;
+            ClosePoint = 0;
+
+            for (int i = 0; i < SavePoint.Length; i++)
+            {
+                float CloseVec = Vector2.Distance(gameObject.transform.position, SavePoint[ClosePoint].transform.position);
+                float iArrVec = Vector2.Distance(gameObject.transform.position, SavePoint[i].transform.position);
+
+                ClosePoint = CloseVec >= iArrVec ? i : ClosePoint;
+            }
+
+            if (ChanceCount != 0)
+            {
+                gameObject.transform.position = SavePoint[ClosePoint].transform.position;
+                Damage(collision.transform.position, true);
+            }
         }
         if (collision.gameObject.CompareTag("Goal"))
         {
@@ -221,7 +251,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Demage"))
         {
-            Damage(collision.transform.position);
+            Damage(collision.transform.position, false);
         }
     }
 
@@ -237,14 +267,16 @@ public class PlayerController : MonoBehaviour
         goJump = false;
     }
 
-    public void Damage(Vector2 targetPos)
+    public void Damage(Vector2 targetPos, bool isOut)
     {
 
         ChanceCount--;
 
-        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
-        rbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
-
+        if (!isOut)
+        {
+            int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
+            rbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+        }
         StartCoroutine(NodamageEffect(15, "damage"));
         Hp.text = ChanceCount.ToString();
 
@@ -272,11 +304,10 @@ public class PlayerController : MonoBehaviour
             {
                 gameObject.layer = 11;
             }
-            Debug.Log("들어옴");
+
             float fadeCnt = 0;
             while (fadeCnt < 1.0f)
             {
-                Debug.Log("들어옴;;");
                 fadeCnt += 0.1f;
                 yield return new WaitForSeconds(0.01f);
                 switch (type)
