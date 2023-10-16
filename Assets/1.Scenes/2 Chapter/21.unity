@@ -4152,6 +4152,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6982741482396035113, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 576071014}
+    - target: {fileID: 6982741482396035113, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 6991723570973598785, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4179,6 +4187,10 @@ PrefabInstance:
     - target: {fileID: 7891839726642952742, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -28.600037
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071925011866128722, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8576988210256020642, guid: 6eed7e1196d683548aee644b7cad6d38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -22801,7 +22813,7 @@ MonoBehaviour:
     img: {fileID: 0}
   SkinName: 
   data: {fileID: 0}
-  Chance: 5
+  Chance: 3
   ChanceCount: 0
   gameover: {fileID: 0}
   Hp: {fileID: 0}
@@ -22816,6 +22828,9 @@ MonoBehaviour:
   QuestItemNumber: 20
   HaveItemNum: 0
   SavePoint: []
+  Lock: {fileID: 0}
+  chapter: 1
+  stage: 2
 --- !u!50 &2049507214
 Rigidbody2D:
   serializedVersion: 4

@@ -15267,7 +15267,7 @@ MonoBehaviour:
     img: {fileID: 0}
   SkinName: 
   data: {fileID: 0}
-  Chance: 5
+  Chance: 3
   ChanceCount: 0
   gameover: {fileID: 0}
   Hp: {fileID: 0}
@@ -15282,6 +15282,9 @@ MonoBehaviour:
   QuestItemNumber: 0
   HaveItemNum: 0
   SavePoint: []
+  Lock: {fileID: 0}
+  chapter: 1
+  stage: 1
 --- !u!50 &2049507214
 Rigidbody2D:
   serializedVersion: 4

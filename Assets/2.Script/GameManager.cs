@@ -154,7 +154,10 @@ public class GameManager : MonoBehaviour
                     player.goal.SetActive(true);
                 }
             }
-            Time.timeScale = 1.0f;
+            if (player.goal.activeSelf)
+                Time.timeScale = 0.0f;
+            else
+                Time.timeScale = 1.0f;
             return;
         }
 

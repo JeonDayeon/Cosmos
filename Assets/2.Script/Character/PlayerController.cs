@@ -55,8 +55,10 @@ public class PlayerController : MonoBehaviour
     public int HaveItemNum;
     //--------------------------------------------------세이브포인트
     public GameObject[] SavePoint;
-
-
+    //--------------------------------------------------해금
+    public LockManager Lock;
+    public int chapter;
+    public int stage;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +117,9 @@ public class PlayerController : MonoBehaviour
         {
             SavePoint[i] = saves.transform.GetChild(i).gameObject;
         }
+
+        //게임 해금
+        Lock = FindObjectOfType<LockManager>();
     }
 
     // Update is called once per frame
@@ -357,11 +362,11 @@ public class PlayerController : MonoBehaviour
 
     public void Goal()
     {
+        Time.timeScale = 0;
         if (QuestPanel != null)
         {
             if(HaveItemNum >= QuestItemNumber)
             {
-                Time.timeScale = 0;
                 gameManager.talkid++;
                 gameManager.isTalk = true;
                 gameManager.Talk();
@@ -369,7 +374,6 @@ public class PlayerController : MonoBehaviour
 
             else if(HaveItemNum < QuestItemNumber)
             {
-                Time.timeScale = 0;
                 gameManager.isTalk = true;
                 gameManager.Talk();
             }
@@ -377,10 +381,12 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            Time.timeScale = 0;
             gameManager.isTalk = true;
             gameManager.Talk();
         }
+
+        Time.timeScale = 0;
+        Lock.UnLock(chapter, stage);
     }
 
     public void GetQuestItem()

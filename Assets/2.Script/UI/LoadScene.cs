@@ -9,6 +9,7 @@ public class LoadScene : MonoBehaviour
     public void LoadStage()
     {
         SceneManager.LoadScene(stageID, LoadSceneMode.Single);
+        Time.timeScale = 1.0f;
     }
 
     public void ReLoad()

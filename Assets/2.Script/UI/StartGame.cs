@@ -8,7 +8,7 @@ public class StartGame : MonoBehaviour
     bool IsAnyKeyStart = false;
     void Start()
     {
-        Invoke("AnyStart", 2f);
+        Invoke("AnyStart", 0.2f);
     }
 
     void Update()
