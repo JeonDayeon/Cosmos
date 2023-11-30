@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
     public float jumpTem = 0.0f;//실행용
     public LayerMask groundLayer;
     public LayerMask DamageLayer;
+    public LayerMask WallLayer;
     bool goJump = false;
     public bool OnGround = false;
     public bool OnDamage = false;
+    public bool OnWall = false;
     bool TwoJump = false;
     //---------------------------------------------------애니메이션
     Animator animator;
@@ -59,6 +61,12 @@ public class PlayerController : MonoBehaviour
     public LockManager Lock;
     public int chapter;
     public int stage;
+    //--------------------------------------------------오디오
+    public AudioSource audiosource;
+    public AudioClip R;
+    public AudioClip L;
+    public AudioClip DamageS;
+    public AudioSource BGM;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +128,11 @@ public class PlayerController : MonoBehaviour
 
         //게임 해금
         Lock = FindObjectOfType<LockManager>();
+
+        //오디오 소스
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = R;
+        BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -129,14 +142,10 @@ public class PlayerController : MonoBehaviour
         isRun = Input.GetKey(KeyCode.Z);
 
         if (Input.GetKeyDown(KeyCode.T))
-        {
             Healing();
-        }
 
         if (isRun)
-        {
             speed = Runspeed;
-        }
 
         else
             speed = Walkspeed;
@@ -162,9 +171,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        OnWall = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), WallLayer);
         OnGround = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), groundLayer);
         OnDamage = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), DamageLayer);
-        if (OnGround || OnDamage || axisH != 0)
+        if ((OnGround || axisH != 0) && !OnWall)
         {
             //지면 위 or 속도가 0이 아닐 때
             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
@@ -195,11 +205,41 @@ public class PlayerController : MonoBehaviour
             {
                 if (isRun)
                 {
+                    audiosource.pitch = 2.0f;
                     nowAnime = RunAnime;
+                   if(!audiosource.isPlaying)
+                    {
+                        if(audiosource.clip == R)
+                        {
+                            audiosource.clip = L;
+                            audiosource.Play();
+                        }
+
+                        if (audiosource.clip == L)
+                        {
+                            audiosource.clip = R;
+                            audiosource.Play();
+                        }
+                    }
                 }
                 else
                 {
+                    audiosource.pitch = 1.0f;
                     nowAnime = WalkAnime; //이동
+                   if(!audiosource.isPlaying)
+                    {
+                        if(audiosource.clip == R)
+                        {
+                            audiosource.clip = L;
+                            audiosource.Play();
+                        }
+
+                        if (audiosource.clip == L)
+                        {
+                            audiosource.clip = R;
+                            audiosource.Play();
+                        }
+                    }
                 }
             }
             Debug.Log(nowAnime);
@@ -251,6 +291,10 @@ public class PlayerController : MonoBehaviour
         {
             Goal();
         }
+        if(collision.gameObject.CompareTag("Boss"))
+        {
+            GameOver();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -274,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(Vector2 targetPos, bool isOut)
     {
-
+        audiosource.PlayOneShot(DamageS);
         ChanceCount--;
 
         if (!isOut)
@@ -358,6 +402,7 @@ public class PlayerController : MonoBehaviour
     {
         Time.timeScale = 0;
         gameover.SetActive(true);
+        BGM.Stop();
     }
 
     public void Goal()

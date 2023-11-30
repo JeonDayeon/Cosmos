@@ -65,6 +65,12 @@ public class TalkManager : MonoBehaviour
             case 202:
                 text = CSVReader.Read("Chapter2-1Ok");
                 break;
+            case 220:
+                text = CSVReader.Read("Chapter2-2");
+                break;
+            case 221:
+                text = CSVReader.Read("Chapter2-2_Suc");
+                break;
         }
         Debug.Log("제네레이트 데이터제네레이트 데이터제네레이트 데이터제네레이트 데이터");
 

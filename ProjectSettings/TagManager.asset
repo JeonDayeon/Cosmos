@@ -9,17 +9,18 @@ TagManager:
   - Goal
   - SetMap
   - HP
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boss
   - Water
   - UI
   - Ground
-  - 
+  - item
   - Damage
-  - 
+  - Wall
   - 
   - NoDamage
   - 
@@ -57,4 +58,10 @@ TagManager:
     locked: 0
   - name: GameUI
     uniqueID: 2034689889
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 262044319
+    locked: 0
+  - name: Effect
+    uniqueID: 136872039
     locked: 0

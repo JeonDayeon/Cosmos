@@ -12,9 +12,15 @@ public class GimmickBlock : MonoBehaviour
     float fadeTime = 0.5f; //페이드 아웃 시간
 
     float d;
+
+    public AudioSource audios;
+    public AudioClip audioc;
     // Start is called before the first frame update
     void Start()
     {
+        audios = GetComponent<AudioSource>();
+        audios.clip = audioc;
+
         //RigidBody2D 물리 시뮬레이션 정지
         rbody = GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
@@ -35,6 +41,7 @@ public class GimmickBlock : MonoBehaviour
                 if (rbody.bodyType == RigidbodyType2D.Static)
                 {
                     rbody.bodyType = RigidbodyType2D.Dynamic; // 물리시뮬레이션 시작
+                    audios.Play();
                     Debug.Log("떨어져라");
                 }
             }
@@ -64,5 +71,10 @@ public class GimmickBlock : MonoBehaviour
         {
             isFell = true; //낙하 플래그 트루로
         }
+    }
+
+    void AudioStop()
+    {
+        audios.Stop();
     }
 }

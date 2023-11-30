@@ -15,9 +15,18 @@ public class MovingBlock : MonoBehaviour
     float perDY;    //1프레임당 y이동 값
     Vector3 defPos; //초기 위치
     bool isReverse = false; //반전 여부
+
+    public AudioSource audioS;
+    public AudioClip ClipS;
+    public float SoundSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        if(ClipS != null)
+        {
+            audioS = GetComponent<AudioSource>();
+            audioS.clip = ClipS;
+        }
         defPos = transform.position; //초기 위치
         float timestep = Time.fixedDeltaTime; // 1프레임에 이동하는 시간
         perDX = moveX / (1.0f / timestep * times); //1프레임 X의 이동값
@@ -30,8 +39,14 @@ public class MovingBlock : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         if (isCanMove)
         {
+            if (audioS != null)
+            {
+                if (!audioS.isPlaying)
+                    Invoke("PlaySound", SoundSpeed);
+            }
             //이동 중
             float x = transform.position.x;
             float y = transform.position.y;
@@ -128,6 +143,10 @@ public class MovingBlock : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
             collision.transform.SetParent(null);
+    }
+    void PlaySound()
+    {
+        audioS.Play();
     }
 }
 

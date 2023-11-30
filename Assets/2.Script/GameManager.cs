@@ -23,7 +23,7 @@ struct portraitCharacterImg
 
 public class GameManager : MonoBehaviour
 {
-    PlayerController player;
+    public PlayerController player;
     MapOption mapOption;
     //대화-------------------------------------------
     TalkManager talkmanager;
@@ -40,10 +40,13 @@ public class GameManager : MonoBehaviour
     public GameObject ExitUI;
     //UI활성 boolean--------------------------------
     public GameObject GameSetting;
-
+    //오디오----------------------------------------
+    public AudioSource audioS;
+    public AudioClip ClickS;
     // Start is called before the first frame update
     void Start()
     {
+        audioS = GameObject.Find("Effect").GetComponent<AudioSource>();
         //Find는 맵에 들어가면 알아서 찾을 수 있게 하기 위함
         player = FindObjectOfType<PlayerController>();
         mapOption = FindObjectOfType<MapOption>();
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void Talk()
     {
+        audioS.clip = ClickS;
+        audioS.Play();
         TalkBox.SetActive(true);
 
         string talkData = talkmanager.GetTalk(talkid, talkindex, "Content");
@@ -145,6 +150,7 @@ public class GameManager : MonoBehaviour
                     {
                         talkid = mapOption.nextId;
                         player.goal.SetActive(true);
+                        player.BGM.Stop();
                     }
                 }
 
@@ -152,6 +158,7 @@ public class GameManager : MonoBehaviour
                 {
                     talkid = mapOption.nextId;
                     player.goal.SetActive(true);
+                    player.BGM.Stop();
                 }
             }
             if (player.goal.activeSelf)

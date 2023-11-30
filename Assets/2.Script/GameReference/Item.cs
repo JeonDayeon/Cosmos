@@ -25,6 +25,10 @@ public class Item : MonoBehaviour
     public TimeManager time;
     //----------------------------------------------------아이템 종류에 따른 이미지 교체를 위함
     SpriteRenderer spriterenderer;
+    //----------------------------------------------------오디오
+    public AudioSource audiosource;
+    public AudioClip ItemAudio;
+    public AudioClip NoDamageAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +36,8 @@ public class Item : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         time = GameObject.Find("GameUI").transform.Find("GameTimer").GetComponent<TimeManager>();
         spriterenderer = gameObject.GetComponent<SpriteRenderer>();
-
+        audiosource = GameObject.Find("Effect").GetComponent<AudioSource>();
+        audiosource.clip = ItemAudio;
         switch (type)
         {
             case ItemType.Heart:
@@ -61,6 +66,7 @@ public class Item : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        audiosource.clip = ItemAudio;
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("굿");
@@ -71,6 +77,7 @@ public class Item : MonoBehaviour
                     break;
 
                 case ItemType.NoDamage:
+                    audiosource.clip = NoDamageAudio;
                     Debug.Log("들어감");
                     player.Star.SetActive(true);
                     Debug.Log("도는 중" + player.isCorutin);
@@ -88,15 +95,18 @@ public class Item : MonoBehaviour
                     break;
 
                 case ItemType.Quest:
+                    audiosource.clip = ItemAudio;
                     player.GetQuestItem();
                     break;
             }
+            audiosource.Play();
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
     
     IEnumerator Nodamage()
     {
+        audiosource.Play();
         Debug.Log("도시");
         yield return player.StartCoroutine(player.NodamageEffect(30, "Item"));
         StopCoroutine(Nodamage());  
