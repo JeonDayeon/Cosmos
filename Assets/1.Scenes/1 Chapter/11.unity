@@ -10749,6 +10749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e932f201d803c42bb79c741020031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   TalkBox: {fileID: 0}
   imageArr:
   - characterImg: 0
@@ -15597,7 +15598,7 @@ MonoBehaviour:
   speed: 0
   Walkspeed: 5
   Runspeed: 8
-  Fjump: 9
+  Fjump: 10
   jumpTem: 0
   groundLayer:
     serializedVersion: 2
@@ -15618,16 +15619,16 @@ MonoBehaviour:
   TwoJumpAnime: TwoJump
   skin:
   - name: 0
-    animator: {fileID: 9100000, guid: 0bf7e594b96945e48bb701ba78c6b4d5, type: 2}
-    img: {fileID: 0}
-  - name: 1
     animator: {fileID: 9100000, guid: d8b357b5c4834084bb9b2f23ea84a44d, type: 2}
     img: {fileID: 0}
-  - name: 2
+  - name: 1
     animator: {fileID: 9100000, guid: 2ef8ec9590accbb4da70cbb7f62e9fe2, type: 2}
     img: {fileID: 0}
-  - name: 3
+  - name: 2
     animator: {fileID: 9100000, guid: 1894068a9b38cdc4a87a6245e9b5e32b, type: 2}
+    img: {fileID: 0}
+  - name: 3
+    animator: {fileID: 9100000, guid: a30c461876f6c8840a429453c1da08d3, type: 2}
     img: {fileID: 0}
   - name: 4
     animator: {fileID: 9100000, guid: 418455fe1490d3d4983d8f913a5691ff, type: 2}
@@ -15636,7 +15637,13 @@ MonoBehaviour:
     animator: {fileID: 9100000, guid: cd4a5660fb89a2c4e9074dc6556a7cb4, type: 2}
     img: {fileID: 0}
   - name: 6
-    animator: {fileID: 9100000, guid: a30c461876f6c8840a429453c1da08d3, type: 2}
+    animator: {fileID: 9100000, guid: 0bf7e594b96945e48bb701ba78c6b4d5, type: 2}
+    img: {fileID: 0}
+  - name: 7
+    animator: {fileID: 9100000, guid: d88247a4da19bdf46bf62e6379a9b5ed, type: 2}
+    img: {fileID: 0}
+  - name: 8
+    animator: {fileID: 9100000, guid: 59462c957635a7f4a867bfc328ee2395, type: 2}
     img: {fileID: 0}
   SkinName: 
   data: {fileID: 0}

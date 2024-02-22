@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbody;
     float axisH = 0.0f;
     public float speed = 0.0f;
-    public float Walkspeed = 3.0f;
-    public float Runspeed = 9.0f;
+    public float Walkspeed = 3.5f;
+    public float Runspeed = 9.5f;
     bool isRun;
     //---------------------------------------------------점프
-    public float Fjump = 4.0f;//저장용
+    public float Fjump = 10.0f;//저장용
     public float jumpTem = 0.0f;//실행용
     public LayerMask groundLayer;
     public LayerMask DamageLayer;
@@ -59,8 +59,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] SavePoint;
     //--------------------------------------------------해금
     public LockManager Lock;
-    public int chapter;
-    public int stage;
+    public int chapter; //다음 챕터
+    public int stage;   //다음 스테이지
     //--------------------------------------------------오디오
     public AudioSource audiosource;
     public AudioClip R;
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         OnWall = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), WallLayer);
-        OnGround = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), groundLayer);
+        OnGround = Physics2D.Linecast(transform.position, transform.position - (transform.right * 0.1f), groundLayer);
         OnDamage = Physics2D.Linecast(transform.position, transform.position - (transform.up * 0.1f), DamageLayer);
         if ((OnGround || axisH != 0) && !OnWall)
         {
@@ -412,6 +412,7 @@ public class PlayerController : MonoBehaviour
         {
             if(HaveItemNum >= QuestItemNumber)
             {
+                Lock.UnLock(chapter, stage);
                 gameManager.talkid++;
                 gameManager.isTalk = true;
                 gameManager.Talk();

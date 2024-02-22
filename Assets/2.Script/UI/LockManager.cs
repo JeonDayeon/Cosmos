@@ -60,9 +60,10 @@ public class LockManager : MonoBehaviour
     {
         GameObject Button = GameObject.Find("Buttons");
         Buttons = new GameObject[Button.transform.childCount];
-
+        Debug.Log(Button);
         for (int i = 0; i < Buttons.Length; i++)
         {
+            Debug.Log(Buttons);
             Buttons[i] = Button.transform.GetChild(i).gameObject;
             if(i + 1 > Unlock)
             {
