@@ -18,7 +18,6 @@ public class BackgroundScrolling : MonoBehaviour
         backgrounds = new Transform[transform.childCount];
         for(int i = 0; i < transform.childCount; i++)
         {
-            Debug.Log(i + "=================" + transform.GetChild(i).name);
             backgrounds[i] = transform.GetChild(i).transform;
         }
         yScreenHalfSize = Camera.main.orthographicSize;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement; //나중에 로드씬으로 쓰고 제거
 
 [System.Serializable]
 struct portraitCharacterImg
@@ -43,6 +44,12 @@ public class GameManager : MonoBehaviour
     //오디오----------------------------------------
     public AudioSource audioS;
     public AudioClip ClickS;
+    //마을------------------------------------------
+    public bool stage;
+    //마이룸----------------------------------------
+    public GameObject myroom;
+    public RuntimeAnimatorController myroomAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +63,11 @@ public class GameManager : MonoBehaviour
         talkText = GameObject.Find("TalkText").GetComponent<TextMeshProUGUI>();
         nameText = GameObject.Find("NameText").GetComponent<TextMeshProUGUI>();
         talkindex = 0; //톡 데이터 순서대로 내보내기 위함
+        
         talkid = mapOption.Id; //맵 아이디 가져오기
-
         isTalk = mapOption.isStory;
+
+        stage = mapOption.isStage;//스테이지인지 아닌지
 
         if (isTalk)
         {
@@ -83,6 +92,8 @@ public class GameManager : MonoBehaviour
 
     public void Talk()
     {
+        Time.timeScale = 0.0f;
+
         audioS.clip = ClickS;
         audioS.Play();
         TalkBox.SetActive(true);
@@ -92,7 +103,6 @@ public class GameManager : MonoBehaviour
         string emotionData = talkmanager.GetTalk(talkid, talkindex, "Emotion");
         string ActiveChar = talkmanager.GetTalk(talkid, talkindex, "Active");
 
-        Debug.Log("이모션 이모션" + emotionData);
         talkText.text = talkData;
         nameText.text = nameData;
 
@@ -149,7 +159,7 @@ public class GameManager : MonoBehaviour
                     if (player.HaveItemNum >= player.QuestItemNumber)
                     {
                         talkid = mapOption.nextId;
-                        player.goal.SetActive(true);
+                        //player.goal.SetActive(true);
                         player.BGM.Stop();
                     }
                 }
@@ -157,14 +167,22 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     talkid = mapOption.nextId;
-                    player.goal.SetActive(true);
+                    //player.goal.SetActive(true);
                     player.BGM.Stop();
+                    SceneManager.LoadScene(3, LoadSceneMode.Single);//수정하기
                 }
             }
             if (player.goal.activeSelf)
                 Time.timeScale = 0.0f;
             else
+            {
                 Time.timeScale = 1.0f;
+                if (stage)
+                {
+                    SceneManager.LoadScene(2, LoadSceneMode.Single);
+                    Time.timeScale = 1.0f;
+                }
+            }
             return;
         }
 

@@ -5866,9 +5866,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980ef9643244b124c827332dfc1a6a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 200
+  isStage: 0
+  Id: 300
   isStory: 1
-  nextId: 202
+  nextId: 302
   QuestId: 0
 --- !u!4 &555990517
 Transform:
@@ -15983,6 +15984,7 @@ MonoBehaviour:
   GameSetting: {fileID: 576071014}
   audioS: {fileID: 0}
   ClickS: {fileID: 8300000, guid: 35a0def1708f73143a5fd13f72afadd3, type: 3}
+  stage: 0
 --- !u!4 &1437997154
 Transform:
   m_ObjectHideFlags: 0
@@ -18803,6 +18805,7 @@ MonoBehaviour:
   L: {fileID: 8300000, guid: 8905363c94cd23c4182287be79aa39a6, type: 3}
   DamageS: {fileID: 8300000, guid: 7e0a04a1fb1746441b6760eeb8df7a68, type: 3}
   BGM: {fileID: 0}
+  isStage: 0
 --- !u!95 &1625088715
 Animator:
   serializedVersion: 4

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/1.Scenes/Start.unity
     guid: 8343fcc70989d0c48a82d25899f23ca4
   - enabled: 1
-    path: Assets/1.Scenes/main.unity
+    path: Assets/1.Scenes/MyRoom.unity
     guid: 6b4d30f8fd3124e4296d0542c9b608a9
   - enabled: 1
     path: Assets/1.Scenes/1 Chapter/11.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scenes/2 Chapter/22.unity
     guid: e240665a18eb097469f89130582282b7
+  - enabled: 1
+    path: Assets/1.Scenes/1 Chapter/SF.unity
+    guid: 441a0108fe52a9240b3d181fdc8e9516
   m_configObjects: {}

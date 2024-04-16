@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rbody;
@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
     //--------------------------------------------------세이브포인트
     public GameObject[] SavePoint;
     //--------------------------------------------------해금
-    public LockManager Lock;
     public int chapter; //다음 챕터
     public int stage;   //다음 스테이지
     //--------------------------------------------------오디오
@@ -67,6 +66,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip L;
     public AudioClip DamageS;
     public AudioSource BGM;
+    //--------------------------------------------------스테이지 판별
+    public bool isStage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,13 +128,13 @@ public class PlayerController : MonoBehaviour
             SavePoint[i] = saves.transform.GetChild(i).gameObject;
         }
 
-        //게임 해금
-        Lock = FindObjectOfType<LockManager>();
-
         //오디오 소스
         audiosource = GetComponent<AudioSource>();
         audiosource.clip = R;
         BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
+
+        //스테이지 판별
+        isStage = gameManager.stage;
     }
 
     // Update is called once per frame
@@ -242,7 +244,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            Debug.Log(nowAnime);
         }
 
 
@@ -268,6 +269,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.CompareTag("Myroom"))
+        {
+            Debug.Log("이동");
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
+        }
+
         if (collision.gameObject.CompareTag("Out"))
         {
             int ClosePoint;
@@ -276,15 +283,18 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < SavePoint.Length; i++)
             {
                 float CloseVec = Vector2.Distance(gameObject.transform.position, SavePoint[ClosePoint].transform.position);
-                float iArrVec = Vector2.Distance(gameObject.transform.position, SavePoint[i].transform.position);
+                float ArrVec = Vector2.Distance(gameObject.transform.position, SavePoint[i].transform.position);
 
-                ClosePoint = CloseVec >= iArrVec ? i : ClosePoint;
+                ClosePoint = CloseVec >= ArrVec ? i : ClosePoint;
             }
 
             if (ChanceCount != 0)
             {
                 gameObject.transform.position = SavePoint[ClosePoint].transform.position;
-                Damage(collision.transform.position, true);
+                if (isStage)
+                {
+                    Damage(collision.transform.position, true);
+                }
             }
         }
         if (collision.gameObject.CompareTag("Goal"))
@@ -412,7 +422,6 @@ public class PlayerController : MonoBehaviour
         {
             if(HaveItemNum >= QuestItemNumber)
             {
-                Lock.UnLock(chapter, stage);
                 gameManager.talkid++;
                 gameManager.isTalk = true;
                 gameManager.Talk();
@@ -431,8 +440,7 @@ public class PlayerController : MonoBehaviour
             gameManager.Talk();
         }
 
-        Time.timeScale = 0;
-        Lock.UnLock(chapter, stage);
+        //Time.timeScale = 0;
     }
 
     public void GetQuestItem()

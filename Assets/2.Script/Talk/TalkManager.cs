@@ -57,12 +57,18 @@ public class TalkManager : MonoBehaviour
                 text = CSVReader.Read("Chapter1-2");
                 break;
             case 200:
-                text = CSVReader.Read("Chapter2-1");
+                text = CSVReader.Read("Chapter1-1 1");
                 break;
             case 201:
+                text = CSVReader.Read("Chapter1-2");
+                break;
+            case 300:
+                text = CSVReader.Read("Chapter2-1");
+                break;
+            case 301:
                 text = CSVReader.Read("Chapter2-1Not");
                 break;
-            case 202:
+            case 302:
                 text = CSVReader.Read("Chapter2-1Ok");
                 break;
             case 220:

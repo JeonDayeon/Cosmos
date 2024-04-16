@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapOption : MonoBehaviour
 {
+    public bool isStage;
     public int Id;
     public bool isStory;
     public int nextId;

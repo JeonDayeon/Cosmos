@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd61683ee575f74291dcbd8aceb3262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageID: Main
+  stageID: Start
 --- !u!1 &4372453641248120400
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uC778\uD654\uBA74"
+  m_text: "\uC2DC\uC791\uD654\uBA74"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d427f2a08915fa9469ab86d74d36458c, type: 2}
   m_sharedMaterial: {fileID: 2499204840742134345, guid: d427f2a08915fa9469ab86d74d36458c, type: 2}
